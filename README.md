@@ -25,7 +25,9 @@ FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.0
 ## Experimental resuts
 ### 1.Three-client setting result：
 <img src="result1.png">
+
 ### 2.Five-client setting result
 <img src="result2.png">
+
 ### 3.Ablation study result
 <img src="ablation_study.jpg">
