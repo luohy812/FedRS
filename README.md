@@ -10,7 +10,7 @@ This is the implementation of FedRS (Federated Learning Under Reliable Supervisi
 
 ## Datasets
 Eight datasets are used for comparison, including LITS,KITS,Pancreas,AMOS,BTCV.
-<img src="/images/dataset.png">
+
 The setting of these datasets is referred to the [FedMENU (TMI-2023)](https://ieeexplore.ieee.org/document/10107904).
 
 
