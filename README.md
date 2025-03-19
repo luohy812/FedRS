@@ -2,7 +2,7 @@
 
 This is the implementation of FedRS (Federated Learning Under Reliable Supervision for Multi-Organ Segmentation With Inconsistent Labels). <mark>(This repository is building....)</mark>
 
-<img src="/src/method.png">
+<img src="/src/method.jpg">
 
 ## Requirements
 
