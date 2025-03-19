@@ -3,7 +3,7 @@
 This is the implementation of FedRS (Federated Learning Under Reliable Supervision for Multi-Organ Segmentation With Inconsistent Labels). <mark>(This repository is building....)</mark>
 
 <img src="/images/method.jpg">
-Our code framework is designed following the structure of [FedMENU (TMI-2023)](https://github.com/DIAL-RPI/Fed-MENU).
+Our code framework is designed following the structure of FedMENU (TMI-2023)(https://github.com/DIAL-RPI/Fed-MENU).
 
 ## Requirements
 
