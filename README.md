@@ -25,4 +25,4 @@ FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.0
 
 ## Experimental resuts
 
-< img src="[three-client setting_ result](/src/three-client setting_ result.png)）" height="807" width="900" >
+< img src="[three-client setting_ result](/src/three-client setting_ result.png)" height="807" width="900" >
