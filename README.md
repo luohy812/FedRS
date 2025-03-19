@@ -4,6 +4,7 @@ This is the implementation of FedRS (Federated Learning Under Reliable Supervisi
 
 <img src="/images/method.jpg">
 Our code framework is designed following the structure of [FedMENU (TMI-2023)](https://github.com/DIAL-RPI/Fed-MENU).
+
 ## Requirements
 
 1. PyTorch-2.0.1
