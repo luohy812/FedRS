@@ -10,11 +10,14 @@ Our code framework is designed following the structure of [FedMENU (TMI-2023)](h
 1. PyTorch-2.0.1
 
 ## Datasets
-Eight datasets are used for comparison, including LITS,KITS,Pancreas,AMOS,BTCV.
-<img src="/images/dataset.jpeg">
+Eight datasets are used for comparison, including LITS, KITS, Pancreas, AMOS, BTCV.
 The setting of these datasets is referred to the Fed-MENU(TMI-2023)(https://ieeexplore.ieee.org/document/10107904)
-
-
+<img src="/images/dataset.jpeg">
+LITS：https://competitions.codalab.org/competitions/17094
+KITS：https://kits19.grand-challenge.org/
+Pancreas：http://medicaldecathlon.com/
+AMOS：https://amos22.grand-challenge.org/
+BTCV：https://www.synapse.org/Synapse:syn3193805/wiki/89480
 ## Run 
 
 For EMNIST-Letters dataset:
@@ -24,6 +27,9 @@ FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.0
 ```
 
 ## Experimental resuts
+Experimental Setting: our experiments includes two configurations: a three-client setting and a five-client setting. The three-client setting employs the LITS, KITS, and Pancreas datasets. The five-client setting incorporates the Spleen and Gallbladder datasets from the AMOS dataset, along with the datasets used in the three-client setting. 
+We perform both in-federation and out-of-federation evaluations. Specifically, we use LITS, KITS, PANCREAS, and AMOS datasets as in-federation datasets. We randomly divide them into a training set, validation set, and test set in a ratio of 6:1:3. For in-federation evaluation, the test sets from all clients are used for evaluation. In our experiments, the dataset BTCV serves as the separate test set for out-of-federation evaluation.
+
 ### 1.Three-client setting result：
 <img src="/images/result1.png">
 
