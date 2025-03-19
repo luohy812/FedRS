@@ -10,7 +10,7 @@ Our code framework is designed following the structure of FedMENU (TMI-2023)(htt
 1. PyTorch-2.0.1
 
 ## Datasets
-Eight datasets are used for comparison, including LITS, KITS, Pancreas, AMOS, BTCV.
+Five datasets are used for comparison, including LITS, KITS, Pancreas, AMOS, BTCV.
 The setting of these datasets is referred to the Fed-MENU(TMI-2023)(https://ieeexplore.ieee.org/document/10107904)
 <img src="/images/dataset.jpeg">
 LITS：https://competitions.codalab.org/competitions/17094  
