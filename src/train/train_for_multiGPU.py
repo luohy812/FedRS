@@ -108,9 +108,7 @@ def eval_global_model(val_loss_fn, val_result_fn, global_model, nodes, result_pa
                                 class_flag.append(1)
                             else:
                                 class_flag.append(0)
-                        # l_ce, l_dice, l_per_cls, n_per_cls = dice_and_ce_loss(prob[i:i + 1, :], label[i:i + 1, :],
-                        #                                                       class_flag)
-                        # loss_n += l_ce + l_dice
+                     
                         l_ce, l_dice, l_per_cls, n_per_cls = dice_and_ce_loss(prob[i:i + 1, :], label[i:i + 1, :],
                                                                               class_flag)
 
@@ -126,20 +124,13 @@ def eval_global_model(val_loss_fn, val_result_fn, global_model, nodes, result_pa
                     del loss_n
                     del label
                 else:
-                    # prob_tensor = prob.detach().cpu()
+                    
                     prob = prob.detach().cpu().numpy().copy()
 
                     for i in range(N):
                         # stack_size = torch.zeros_like(prob_tensor[i, :])
                         # stack_size = stack_size.numpy()
                         stack_size = batch['size'][i].numpy()
-                        if torch.distributed.get_rank() == 0:
-                            print(type(stack_size))
-                            print(stack_size[0])
-                            print(stack_size[1])
-                            print(stack_size[2])
-                            print(stack_size.shape)
-
                         stack_weight = generate_gauss_weight(stack_size[2], stack_size[1], stack_size[0])
                         if whole_prob_buffer is None:
                             whole_mask_size = stack_size.copy()
@@ -166,9 +157,6 @@ def eval_global_model(val_loss_fn, val_result_fn, global_model, nodes, result_pa
                         stack_end_pos[0] = stack_start_pos[0] + stack_size[0]
                         stack_end_pos[1] = stack_start_pos[1] + stack_size[1]
                         stack_end_pos[2] = stack_start_pos[2] + stack_size[2]
-                        # if (whole_prob_buffer[:, stack_start_pos[2]:stack_end_pos[2],
-                        #     stack_start_pos[1]:stack_end_pos[1], stack_start_pos[0]:stack_end_pos[0]]).shape != prob[i, :].shape:
-                        #     whole_prob_buffer = np.zeros(prob[i,:])
                         if torch.distributed.get_rank() == 0:
                             print('prob', prob[i, :].shape)
                             print('whole', whole_prob_buffer[:, stack_start_pos[2]:stack_end_pos[2],
@@ -249,12 +237,12 @@ def communication(global_model, nodes, weight_list):
             print('score communicate')
         sub_encoder_weights = []
 
-        for key in global_model.module.state_dict().keys():  # 模型参数 解决方案，让encoder不等于.sub_encoders
-            temp = torch.zeros_like(global_model.module.state_dict()[key])  # 为当前键key创建一个与全局模型同形状的零张量temp。
+        for key in global_model.module.state_dict().keys():  
+            temp = torch.zeros_like(global_model.module.state_dict()[key]) 
 
             for node_id in range(len(nodes)):
                 # print(label_size[node_id])
-                temp += weight_list[node_id] * nodes[node_id][0].module.state_dict()[key]  # 4:由数据量大小分配的权重;0:参数
+                temp += weight_list[node_id] * nodes[node_id][0].module.state_dict()[key] 
 
             global_model.module.state_dict()[key].data.copy_(temp)
             for node_id in range(len(nodes)):
@@ -301,8 +289,7 @@ def eval_global_model_test(val_result_fn, global_model, nodes, result_path, mode
 
                 prob = global_model(image)
 
-                # mask = torch.argmax(prob, dim=1, keepdim=True).detach().cpu().numpy().copy().astype(dtype=np.uint8)
-                # mask = np.squeeze(mask, axis=1)
+             
                 rank = dist.get_rank()
 
                 print_line = f'Rank {rank}:'+'\t'
@@ -366,8 +353,7 @@ def eval_global_model_test(val_result_fn, global_model, nodes, result_path, mode
                         stack_end_pos[0] = stack_start_pos[0] + stack_size[0]
                         stack_end_pos[1] = stack_start_pos[1] + stack_size[1]
                         stack_end_pos[2] = stack_start_pos[2] + stack_size[2]
-                        # if (whole_prob_buffer[:, stack_start_pos[2]:stack_end_pos[2],
-                        #     stack_start_pos[1]:stack_end_pos[1], stack_start_pos[0]:stack_end_pos[0]]).shape == prob[i, :].shape:
+                      
                         whole_prob_buffer[:, stack_start_pos[2]:stack_end_pos[2], stack_start_pos[1]:stack_end_pos[1],
                         stack_start_pos[0]:stack_end_pos[0]] += prob[i, :] * stack_weight
 
@@ -479,10 +465,7 @@ def train_new_GPUs_ours():
             train_consistency_socre(train_sampler, local_model, global_model, dl_train, cfg['epoch_per_commu'],
                                     consistency_list,photo_number_list,commu_t)
 
-        consistency_list = consistency_list / photo_number_list
-        consistency_list = consistency_list
-        total_score = sum(consistency_list)
-        consistency_list = [score / total_score for score in consistency_list]
+      
         if torch.distributed.get_rank() == 0:
             values = torch.tensor([t.item() for t in consistency_list])
             with open(weight_fn, 'a') as val_file:
