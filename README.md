@@ -24,5 +24,5 @@ FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.0
 ```
 
 ## Experimental resuts
-<img src="result1.png" height="807" width="900">
+<img src="result1.png" height="2000" width=2299"">
 
