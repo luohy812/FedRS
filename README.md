@@ -24,11 +24,7 @@ AMOS：https://amos22.grand-challenge.org/
 BTCV：https://www.synapse.org/Synapse:syn3193805/wiki/89480  
 ## Run 
 
-For EMNIST-Letters dataset:
-
-```bash
-FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.001, 10, 0.05, true, 1);
-```
+CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.run --nproc_per_node=4 --master_port=25000 main.py
 
 ## Experimental resuts
 Experimental Setting: our experiments includes two configurations: a three-client setting and a five-client setting. The three-client setting employs the LITS, KITS, and Pancreas datasets. The five-client setting incorporates the Spleen and Gallbladder datasets from the AMOS dataset, along with the datasets used in the three-client setting. 
