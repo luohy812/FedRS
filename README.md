@@ -33,6 +33,6 @@ Experimental Setting: our experiments includes two configurations: a three-clien
 We perform both in-federation and out-of-federation evaluations. Specifically, we use LITS, KITS, PANCREAS, and AMOS datasets as in-federation datasets. We randomly divide them into a training set, validation set, and test set in a ratio of 6:1:3. For in-federation evaluation, the test sets from all clients are used for evaluation. In our experiments, the dataset BTCV serves as the separate test set for out-of-federation evaluation.
 
 ### 1.Three-client setting result：
-<img src="/images/result1.png">  
+<img src="/images/result.png">  
 
 
