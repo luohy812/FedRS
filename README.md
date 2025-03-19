@@ -1,4 +1,4 @@
-# FedRS: Federated Learning Under Reliable Supervision for Multi-Organ Segmentation With Inconsistent Labels
+![three-client setting_ result](https://github.com/user-attachments/assets/efff5f79-2a2f-4fbc-9b04-9b09bd2b07fe)# FedRS: Federated Learning Under Reliable Supervision for Multi-Organ Segmentation With Inconsistent Labels
 
 This is the implementation of FedRS (Federated Learning Under Reliable Supervision for Multi-Organ Segmentation With Inconsistent Labels). <mark>(This repository is building....)</mark>
 
@@ -25,4 +25,4 @@ FL_BLS_CIL_Our(999, 'emnist-letters', 1, 1500, 120, 'sig', 80, 40, 10, 0.01, 0.0
 
 ## Experimental resuts
 
-< img src="three client setting result.png" height="807" width="900" >
+< img src="[three client setting result.png](https://github.com/luohy812/FedRS/blob/main/src/three-client%20setting_%20result.png)" height="807" width="900" >
